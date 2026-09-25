@@ -6,6 +6,8 @@ public class Course
 
     public String title;
 
+    public GradingStrategy strategy;
+
     public List<Student> students;
 
     public List<Instructor> instructors;
@@ -50,5 +52,15 @@ public class Course
     public List<Module> getModules()
     {
         return modules;
+    }
+
+    public void setStrategy(GradingStrategy s)
+    {
+        strategy = s;
+    }
+
+    public GradingStrategy getStrategy()
+    {
+        return strategy;
     }
 }

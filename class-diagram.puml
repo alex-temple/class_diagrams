@@ -4,7 +4,22 @@ left to right direction
 class Course {
     +courseId: String
     +title: String
+    +strategy: GradingStrategy
     +modules: List<Module>
+    +setStrategy(s: GradingStrategy): void
+    +getStrategy(): GradingStrategy
+}
+
+interface GradingStrategy {
+    +calculateFinalGrade(): double
+}
+
+class PercentageBased {
+    +calculateFinalGrade(): double
+}
+
+class GPABased {
+    +calculateFinalGrade(): double
 }
 
 class Module {
@@ -38,6 +53,9 @@ class EnrollmentRequest {
 }
 
 Course "1" --> "0..*" Module : modules
+Course "1" --> "1" GradingStrategy : strategy
+GradingStrategy <|.. PercentageBased
+GradingStrategy <|.. GPABased
 Module "1" --> "0..*" Lesson : lessons
 EnrollmentRequest "0..*" --> "1" Student : student
 EnrollmentRequest "0..*" --> "1" Course : course
