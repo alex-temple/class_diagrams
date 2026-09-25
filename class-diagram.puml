@@ -1,0 +1,25 @@
+@startuml
+left to right direction
+
+class Course {
+    +courseId: String
+    +title: String
+    +modules: List<Module>
+}
+
+class Module {
+    +moduleId: String
+    +name: String
+    +lessons: List<Lesson>
+}
+
+class Lesson {
+    +lessonId: String
+    +title: String
+    +contentUrl: String
+    +getTitle(): String
+}
+
+Course "1" --> "0..*" Module : modules
+Module "1" --> "0..*" Lesson : lessons
+@enduml
