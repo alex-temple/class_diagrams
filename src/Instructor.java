@@ -15,6 +15,11 @@ public class Instructor extends User
 
     public List<Course> coursesTaught;
 
+    public void reviewRequest(EnrollmentRequest rew, boolean approve)
+    {
+
+    }
+
     public void assignTo(Course course)
     {
 

@@ -10,6 +10,11 @@ public class Student extends User
 
     public List<Course> enrolledCourses;
 
+    public EnrollmentRequest requestEnrollment(Course course)
+    {
+        return null;
+    }
+
     public void enroll(Course course)
     {
 

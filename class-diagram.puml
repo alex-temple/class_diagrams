@@ -20,6 +20,26 @@ class Lesson {
     +getTitle(): String
 }
 
+class Student {
+    +requestEnrollment(course: Course): EnrollmentRequest
+}
+
+class Instructor {
+    +reviewRequest(rew: EnrollmentRequest, approve: boolean): void
+}
+
+class EnrollmentRequest {
+    +requestId: String
+    +student: Student
+    +course: Course
+    +createdAt: String
+    +getStudent(): Student
+    +getCourse(): Course
+}
+
 Course "1" --> "0..*" Module : modules
 Module "1" --> "0..*" Lesson : lessons
+EnrollmentRequest "0..*" --> "1" Student : student
+EnrollmentRequest "0..*" --> "1" Course : course
+Instructor "1" --> "0..*" EnrollmentRequest : reviews
 @enduml
